@@ -1,2 +1,2 @@
-from physics_tools.notation import notation
-from physics_tools.variables import var
+from physics_tools.tools import notation
+from physics_tools.tools import var

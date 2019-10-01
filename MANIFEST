@@ -4,3 +4,4 @@ setup.cfg
 setup.py
 physics_tools\__init__.py
 physics_tools\notation.py
+physics_tools\variables.py
