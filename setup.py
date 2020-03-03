@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'physics_tools',         # How you named your package folder (MyLib)
   packages = ['physics_tools'],   # Chose the same as "name"
-  version = '1.1',      # Start with a small number and increase it with every change you make
+  version = '1.2',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Tools for physics',   # Give a short description about your library
   author = 'Niels vd Nieuwendijk',                   # Type in your name
