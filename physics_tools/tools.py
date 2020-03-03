@@ -11,7 +11,7 @@ def sci_notation(number, num_significant, decimal=','):
     if b == str('+00'): return a 
     else:
         b = int(b)
-        return a + "·10" + notation.SuperScript(b)
+        return a + "·10" + SuperScript(b)
 
 # Formules
 def ev_to_joule(ev):
