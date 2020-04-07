@@ -61,7 +61,7 @@ class c:
     inf = np.inf
     
 # -------------------------------------------Matrixen-------------------------------
-def setup_matrix_display()
+def setup_matrix_display():
   sp.init_printing(use_latex='mathjax') 
   from IPython.display import display
 
