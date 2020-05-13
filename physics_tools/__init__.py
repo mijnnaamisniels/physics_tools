@@ -7,7 +7,7 @@ def SuperScript(number):
     return number.replace('0', '⁰').replace('1', '¹').replace('2', '²').replace('3', '³').replace('4', '⁴').replace('5', '⁵').replace('6', '⁶').replace('7', '⁷').replace('8', '⁸').replace('9', '⁹').replace('-', '⁻')
 
 
-def sci_notation(number, num_significant=2, decimal=','):
+def sci_not(number, num_significant=2, decimal=','):
     ret_string = "{0:.{1:d}e}".format(number, num_significant)
     a, b = ret_string.split("e")
     a = a.replace('.', decimal)
@@ -18,16 +18,25 @@ def sci_notation(number, num_significant=2, decimal=','):
 
 # -------------------------------------Formules---------------------------------
 def ev_to_joule(ev):
-    return ev*1.602*10**-19
+    return ev*1.602e-19
 
 def joule_to_ev(joule):
-    return joule/(1.602*10**-19)
+    return joule/(1.602e-19)
 
 def exp(number):
     return 2.71828182845904523536028747135266249**number
 
 def root(number, macht=2):
     return number**(1/macht)
+
+def power(number, macht=2):
+    return number**macht
+
+def deg(theta_rad):
+    return theta_rad/c.pi * 180
+
+def rad(theta_deg):
+    return theta_deg/180 * c.pi
 
 # --------------------------------------Constanten------------------------------------
 class c: 
@@ -38,9 +47,8 @@ class c:
     p_0 = 1.01325*10**5
     N_A = 6.02214129*10**23
     R = 8.3144621
-    k_B = 1.3806488*10**-23
+    k = 1.3806488*10**-23
     sigma = 5.670373*10**-8
-    k_W = 2.8977721*10**-3
     h = 6.62606957*10**-34
     c = 2.99792458*10**8
     epsilon = 8.854187817*10**-12
@@ -70,7 +78,7 @@ def identiteit():
     return sp.Matrix([[1,0,0],[0,1,0],[0,0,1]])
 
 def schalen(x,y):
-    return sp.Matrix([[x,o,0],[0,y,0],[0,0,1]])
+    return sp.Matrix([[x,0,0],[0,y,0],[0,0,1]])
 
 def roteren(theta):
     theta = theta/180*np.pi
