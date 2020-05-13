@@ -2,13 +2,13 @@ from distutils.core import setup
 setup(
   name = 'physics_tools',    
   packages = ['physics_tools'],   
-  version = '1.7',
+  version = '2.0',
   license='MIT',
   description = 'Tools for physics',
   author = 'Niels vd Nieuwendijk',
   author_email = 'niels.nieuwendijk@gmail.com', 
   url = 'https://github.com/user/mijnnaamisniels',
-  download_url = 'https://github.com/mijnnaamisniels/physics_tools/archive/v17.tar.gz',
+  download_url = 'https://github.com/mijnnaamisniels/physics_tools/archive/v20.tar.gz',
   keywords = ['python', 'physics', 'tools'], 
   install_requires=[
       ],
