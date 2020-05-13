@@ -7,14 +7,32 @@ def SuperScript(number):
     return number.replace('0', '⁰').replace('1', '¹').replace('2', '²').replace('3', '³').replace('4', '⁴').replace('5', '⁵').replace('6', '⁶').replace('7', '⁷').replace('8', '⁸').replace('9', '⁹').replace('-', '⁻')
 
 
-def sci_not(number, num_significant=2, decimal=','):
-    ret_string = "{0:.{1:d}e}".format(number, num_significant)
+def sci_not(number, num_sig=2, decimal=','):
+    if type(number) == str:
+        number = float(number)
+    ret_string = "{0:.{1:d}e}".format(number, num_sig-1)
     a, b = ret_string.split("e")
     a = a.replace('.', decimal)
     if b == str('+00'): return a 
     else:
         b = int(b)
         return a + "·10" + SuperScript(b)
+
+def sci_axis(fig, num_sigx=2, num_sigy=2):
+    fig.canvas.draw()
+    ax = fig.axes[0]
+
+    # Verkrijg oude labs
+    xlabs = [item.get_text() for item in ax.get_xticklabels()]
+    ylabs = [item.get_text() for item in ax.get_yticklabels()]
+    
+    # Maak nieuwe labs
+    new_xlabs = [sci_not(lab.replace('\u2212', '-'), num_sigx) for lab in xlabs ]
+    new_ylabs = [sci_not(lab.replace('\u2212', '-'), num_sigy) for lab in ylabs ]
+    
+    # Verander labs naar nieuwe labs
+    ax.set_xticklabels(new_xlabs)
+    ax.set_yticklabels(new_ylabs)
 
 # -------------------------------------Formules---------------------------------
 def ev_to_joule(ev):
