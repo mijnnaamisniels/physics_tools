@@ -33,6 +33,24 @@ def sci_axis(fig, num_sigx=2, num_sigy=2):
     # Verander labs naar nieuwe labs
     ax.set_xticklabels(new_xlabs)
     ax.set_yticklabels(new_ylabs)
+    
+def dec_axis(fig, num_xdec=2, num_ydec=2):
+    fig.canvas.draw()
+    ax = fig.axes[0]
+
+    # Verkrijg oude labs
+    xlabs = [item.get_text() for item in ax.get_xticklabels()]
+    ylabs = [item.get_text() for item in ax.get_yticklabels()]
+    
+    # Maak nieuwe labs
+    xformat = '%0.0' + str(num_xdec) + 'f'
+    yformat = '%0.0' + str(num_ydec) + 'f'
+    new_xlabs =  [(xformat %float(lab.replace('\u2212', '-'))).replace('.', ',') for lab in xlabs]
+    new_ylabs =  [(yformat %float(lab.replace('\u2212', '-'))).replace('.', ',') for lab in ylabs]
+    
+    # Verander labs naar nieuwe labs
+    ax.set_xticklabels(new_xlabs)
+    ax.set_yticklabels(new_ylabs)
 
 # -------------------------------------Formules---------------------------------
 def ev_to_joule(ev):
